@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BankApplication</string>
+    <string-array name="serviceSpinner">
+        <item> DEPOSIT </item>
+        <item> WITHDRAW </item>
+        <item> TRANSFER </item>
+    </string-array>
+</resources>
