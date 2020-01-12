@@ -105,12 +105,12 @@ public class Bank {
         else if (index < 0) {
             setError("Error: client " + name + " does not exist.");
         } else if (transAmount == -88888) {
-            setError("Error: Transaction amount cannot be empty");
+            setError("Error: Transaction amount cannot be empty.");
         }
         else if (transAmount <= 0) {
-            setError("Error: Transaction amount must be positive");
+            setError("Error: Transaction amount must be positive.");
         } else if (transAmount > this.clients[index].balanceOfClient) {
-            setError("Error: Amount too large");
+            setError("Error: Amount too large.");
         } else {
             resetError();
             if (services.equals("WITHDRAW")) {
@@ -139,13 +139,13 @@ public class Bank {
             setError("Error: client " + creditAccount + " does not exist.");
         }
         else if (transAmount == -88888) {
-            setError("Error: Transaction amount cannot be empty");
+            setError("Error: Transaction amount cannot be empty.");
         }
         else if (transAmount <= 0) {
-            setError("Error: Transaction amount must be positive");
+            setError("Error: Transaction amount must be positive.");
         }
         else if (transAmount > this.clients[index1].balanceOfClient) {
-            setError("Error: Amount too large");
+            setError("Error: Amount too large.");
         }
         else {
             resetError();
