@@ -59,7 +59,13 @@ public class MainActivity extends AppCompatActivity {
         String debitAccount = getInputOfTextField(R.id.debitAccount);
         String creditAccount = getInputOfTextField(R.id.creditAccount);
         String amount = getInputOfTextField(R.id.transAmount);
-        double transAmount = Double.parseDouble(amount);
+        double transAmount;
+        if (amount.equals("")) {
+            transAmount = -88888;
+        }
+        else {
+            transAmount = Double.parseDouble(amount);
+        }
 
         bank.setTransAttribute(services,debitAccount,creditAccount,transAmount);
         bank.serveClients();
