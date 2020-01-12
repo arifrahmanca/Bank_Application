@@ -73,11 +73,17 @@ public class Bank {
         this.transAmount = transAmount;
         this.creditAccount = name;
         int index = indexOfClient(name);
-        if (index < 0) {
+        if (name.equals("")){
+            setError("Credit Account cannot be empty.");
+        }
+        else if (index < 0) {
             setError("Error: client " + name + " does not exist.");
         }
+        else if (transAmount == -88888) {
+            setError("Error: Transaction amount cannot be empty.");
+        }
         else if (transAmount <= 0) {
-            setError("Error: Invalid amount");
+            setError("Error: Transaction amount must be positive.");
         }
         else {
             resetError();
@@ -93,10 +99,16 @@ public class Bank {
         this.debitAccount = name;
         this.transAmount = transAmount;
         int index = indexOfClient(name);
-        if (index < 0) {
+        if (name.equals("")) {
+            setError("Debit Account cannot be empty.");
+        }
+        else if (index < 0) {
             setError("Error: client " + name + " does not exist.");
-        } else if (transAmount <= 0) {
-            setError("Error: Invalid amount");
+        } else if (transAmount == -88888) {
+            setError("Error: Transaction amount cannot be empty");
+        }
+        else if (transAmount <= 0) {
+            setError("Error: Transaction amount must be positive");
         } else if (transAmount > this.clients[index].balanceOfClient) {
             setError("Error: Amount too large");
         } else {
@@ -114,14 +126,23 @@ public class Bank {
         this.transAmount = transAmount;
         int index1 = indexOfClient(debitAccount);
         int index2 = indexOfClient(creditAccount);
-        if (index1 < 0) {
+        if (debitAccount.equals("")) {
+            setError("Debit Account cannot be empty.");
+        }
+        else if (creditAccount.equals("")) {
+            setError("Credit Account cannot be empty.");
+        }
+        else if (index1 < 0) {
             setError("Error: client " + debitAccount + " does not exist.");
         }
         else if (index2 < 0) {
             setError("Error: client " + creditAccount + " does not exist.");
         }
+        else if (transAmount == -88888) {
+            setError("Error: Transaction amount cannot be empty");
+        }
         else if (transAmount <= 0) {
-            setError("Error: Invalid amount");
+            setError("Error: Transaction amount must be positive");
         }
         else if (transAmount > this.clients[index1].balanceOfClient) {
             setError("Error: Amount too large");
